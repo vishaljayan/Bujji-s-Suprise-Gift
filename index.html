@@ -203,8 +203,8 @@ animation:flashEffect .6s ease-out;
 <body>
 
 <!-- MUSIC -->
-<audio autoplay loop>
-<source src="kalyani.mp3" type="audio/mp3">
+<audio id="bgMusic" loop>
+<source src="kalyani.mp3" type="audio/mpeg">
 </audio>
 
 <div class="inbox" id="inbox" onclick="openMail()">
@@ -224,11 +224,26 @@ animation:flashEffect .6s ease-out;
 </div>
 
 <div class="final" id="final">
-<div class="final-title">YOU SAID YES 💖</div>
+    <div class="final-title">YOU SAID YES 💖</div>
+    <div class="final-message">
+        You just made my world brighter than it has ever been.
+        <br><br>
+        I don’t just love you.
+        <br>
+        I choose you.
+        <br>
+        Every single day.
+        <br>
+        In every lifetime.
+        <br><br>
+        Forever yours, Wifey ❤️
+    </div>
 </div>
 
 <script>
 function openMail(){
+  const music= document.getElementById("bgMusi");
+  music.play().catch(() => {});
 document.getElementById("inbox").style.display="none";
 document.getElementById("proposal").style.display="block";
 }
@@ -309,3 +324,4 @@ document.body.appendChild(t);
 
 </body>
 </html>
+
