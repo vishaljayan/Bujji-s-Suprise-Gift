@@ -1,4 +1,4 @@
-.<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -142,13 +142,21 @@ left:35%;
 display:none;
 height:100vh;
 text-align:center;
-padding-top:150px;
+padding-top:120px;
 }
 
 .final-title{
 font-family:'Great Vibes',cursive;
 font-size:100px;
 animation:glow 2s infinite alternate;
+}
+
+.final-message{
+font-size:28px;
+width:70%;
+margin:30px auto;
+line-height:1.6;
+animation:fadeIn 2s ease-in-out forwards;
 }
 
 /* Hearts */
@@ -224,26 +232,26 @@ animation:flashEffect .6s ease-out;
 </div>
 
 <div class="final" id="final">
-    <div class="final-title">YOU SAID YES 💖</div>
-    <div class="final-message">
-        You just made my world brighter than it has ever been.
-        <br><br>
-        I don’t just love you.
-        <br>
-        I choose you.
-        <br>
-        Every single day.
-        <br>
-        In every lifetime.
-        <br><br>
-        Forever yours, Wifey ❤️
-    </div>
+<div class="final-title">YOU SAID YES 💖</div>
+<div class="final-message">
+You just made my world brighter than it has ever been.
+<br><br>
+I don’t just love you.
+<br>
+I choose you.
+<br>
+Every single day.
+<br>
+In every lifetime.
+<br><br>
+Forever yours, Wifey ❤️
+</div>
 </div>
 
 <script>
 function openMail(){
-  const music= document.getElementById("bgMusi");
-  music.play().catch(() => {});
+const music=document.getElementById("bgMusic");
+music.play().catch(()=>{});
 document.getElementById("inbox").style.display="none";
 document.getElementById("proposal").style.display="block";
 }
@@ -324,4 +332,3 @@ document.body.appendChild(t);
 
 </body>
 </html>
-
