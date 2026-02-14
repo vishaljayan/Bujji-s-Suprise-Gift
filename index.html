@@ -17,7 +17,7 @@ animation:gradientMove 10s ease infinite;
 color:black;
 }
 
-/* Gradient */
+/* Gradient Animation */
 @keyframes gradientMove{
 0%{background-position:0% 50%}
 50%{background-position:100% 50%}
@@ -52,7 +52,7 @@ pointer-events:none;
 100%{transform:translateY(-20vh) rotate(360deg)}
 }
 
-/* Opening */
+/* Opening Screen */
 .inbox{
 width:100%;
 height:100vh;
@@ -102,7 +102,7 @@ to{text-shadow:0 0 80px #fff,0 0 120px #ff4d6d}
 100%{transform:scale(1)}
 }
 
-/* Proposal */
+/* Proposal Screen */
 .proposal{
 display:none;
 height:100vh;
@@ -112,7 +112,7 @@ padding-top:120px;
 
 .proposal h1{
 font-family:'Great Vibes',cursive;
-font-size:80px;
+font-size:70px;
 }
 
 /* Buttons */
@@ -137,7 +137,7 @@ color:white;
 left:35%;
 }
 
-/* Final */
+/* Final Screen */
 .final{
 display:none;
 height:100vh;
@@ -152,7 +152,7 @@ animation:glow 2s infinite alternate;
 }
 
 .final-message{
-font-size:28px;
+font-size:26px;
 width:70%;
 margin:30px auto;
 line-height:1.6;
@@ -215,6 +215,7 @@ animation:flashEffect .6s ease-out;
 <source src="kalyani.mp3" type="audio/mpeg">
 </audio>
 
+<!-- Opening -->
 <div class="inbox" id="inbox" onclick="openMail()">
 <div class="love-message">
 <p>You didn’t just enter my life.</p>
@@ -225,16 +226,18 @@ animation:flashEffect .6s ease-out;
 </div>
 </div>
 
+<!-- Proposal -->
 <div class="proposal" id="proposal">
 <h1>Will you be my Valentine, Wifey? ❤️</h1>
 <button id="noBtn">No</button>
 <button id="yesBtn" onclick="accepted()">Yes</button>
 </div>
 
+<!-- Final -->
 <div class="final" id="final">
 <div class="final-title">YOU SAID YES 💖</div>
 <div class="final-message">
-You just made my world brighter than it has ever been.
+You just made my world brighter than ever.
 <br><br>
 I don’t just love you.
 <br>
@@ -249,14 +252,18 @@ Forever yours, Wifey ❤️
 </div>
 
 <script>
+
+/* OPEN MAIL */
 function openMail(){
 const music=document.getElementById("bgMusic");
+if(music){
 music.play().catch(()=>{});
+}
 document.getElementById("inbox").style.display="none";
 document.getElementById("proposal").style.display="block";
 }
 
-/* No button fun */
+/* No Button Logic */
 const noBtn=document.getElementById("noBtn");
 const messages=[
 "No way 😏",
@@ -272,16 +279,20 @@ const messages=[
 ];
 let msgIndex=0;
 
-noBtn.addEventListener("mouseover",()=>{
+if(noBtn){
+noBtn.addEventListener("mouseover",function(){
 noBtn.style.left=Math.random()*70+"%";
 noBtn.style.top=Math.random()*300+"px";
 alert(messages[msgIndex]);
 msgIndex=(msgIndex+1)%messages.length;
 });
+}
 
-/* YES celebration */
+/* YES Celebration */
 function accepted(){
+
 document.body.appendChild(document.createElement("div")).className="flash";
+
 document.getElementById("proposal").style.display="none";
 document.getElementById("final").style.display="block";
 
@@ -328,6 +339,7 @@ t.style.left=Math.random()*100+"%";
 t.style.animationDuration=(Math.random()*6+6)+"s";
 document.body.appendChild(t);
 }
+
 </script>
 
 </body>
