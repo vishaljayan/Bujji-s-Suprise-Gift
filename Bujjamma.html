@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #ff758c);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+    color: white;
+    animation-delay: 0.5s;
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Slow Fade In */
+body {
+    opacity: 0;
+    animation: fadeInBody 3s forwards;
+}
+
+@keyframes fadeInBody {
+    to { opacity: 1; }
+}
+
+/* Sparkles */
+.sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: sparkleMove linear infinite;
+}
+
+@keyframes sparkleMove {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Teddy Bears */
+.teddy {
+    position: fixed;
+    font-size: 90px;
+    animation: floatTeddy linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatTeddy {
+    0% { transform: translateY(100vh) rotate(0deg); }
+    100% { transform: translateY(-20vh) rotate(360deg); }
+}
+
+/* Heartbeat Glow */
+.heartbeat {
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Opening */
+.inbox {
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    cursor:pointer;
+}
+
+.love-message {
+    width:80%;
+}
+
+.love-message p {
+    font-size:26px;
+    margin:10px 0;
+    opacity:0;
+    animation:appear 2s forwards;
+}
+
+.love-message p:nth-child(1){animation-delay:1s;}
+.love-message p:nth-child(2){animation-delay:2s;}
+.love-message p:nth-child(3){animation-delay:3s;}
+.love-message p:nth-child(4){animation-delay:4s;}
+
+.valentine-question {
+    font-family:'Great Vibes',cursive;
+    font-size:90px;
+    margin-top:40px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow:0 0 20px #fff; }
+    to { text-shadow:0 0 80px #fff,0 0 120px #ff4d6d; }
+}
+
+@keyframes appear {
+    to { opacity:1; }
+}
+
+/* Proposal */
+.proposal {
+    display:none;
+    height:100vh;
+    text-align:center;
+    padding-top:120px;
+}
+
+.proposal h1 {
+    font-family:'Great Vibes',cursive;
+    font-size:80px;
+}
+
+/* Buttons */
+button {
+    padding:15px 40px;
+    border-radius:40px;
+    border:none;
+    font-size:20px;
+    cursor:pointer;
+    position:absolute;
+}
+
+#yesBtn {
+    background:#28a745;
+    color:white;
+    left:55%;
+}
+
+#noBtn {
+    background:#dc3545;
+    color:white;
+    left:35%;
+}
+
+/* Final */
+.final {
+    display:none;
+    height:100vh;
+    text-align:center;
+    padding-top:150px;
+}
+
+.final-title {
+    font-family:'Great Vibes',cursive;
+    font-size:100px;
+}
+
+/* Effects */
+.floating-heart {
+    position:absolute;
+    font-size:80px;
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform:translateY(100vh); }
+    100% { transform:translateY(-20vh); }
+}
+
+.petal {
+    position:absolute;
+    font-size:70px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform:translateY(-10vh) rotate(0deg); }
+    100% { transform:translateY(100vh) rotate(360deg); }
+}
+
+.confetti {
+    position:absolute;
+    width:14px;
+    height:14px;
+    animation:confettiFall linear infinite;
+}
+
+@keyframes confettiFall {
+    0% { transform:translateY(-10vh) rotate(0deg); }
+    100% { transform:translateY(100vh) rotate(720deg); }
+}
+
+/* Flash */
+.flash {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:white;
+    animation:flashEffect 0.6s ease-out;
+}
+
+@keyframes flashEffect {
+    0% { opacity:1; }
+    100% { opacity:0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" autoplay loop>
+  <source src="kalyani.mp3" type="audio/mp3">
+</audio>
+
+<div class="inbox" id="inbox" onclick="openMail()">
+    <div class="love-message heartbeat">
+        <p>You didn’t just enter my life.</p>
+        <p>You became my everything.</p>
+        <p>My calm. My chaos.</p>
+        <p>My forever.</p>
+        <div class="valentine-question">
+            Will you be my Valentine ❤️?
+        </div>
+    </div>
+</div>
+
+<div class="proposal" id="proposal">
+    <h1>Dear Bujji Thalli 💖</h1>
+    <button id="noBtn">No</button>
+    <button id="yesBtn" onclick="accepted()">Yes</button>
+</div>
+
+<div class="final" id="final">
+    <div class="final-title heartbeat">YOU SAID YES 💖</div>
+</div>
+
+<script>
+function openMail(){
+    document.getElementById("inbox").style.display="none";
+    document.getElementById("proposal").style.display="block";
+}
+
+document.getElementById("noBtn").addEventListener("mouseover",()=>{
+    document.getElementById("noBtn").style.left=Math.random()*70+"%";
+    document.getElementById("noBtn").style.top=Math.random()*300+"px";
+});
+
+function accepted(){
+    document.body.appendChild(document.createElement("div")).className="flash";
+    document.getElementById("proposal").style.display="none";
+    document.getElementById("final").style.display="block";
+
+    setInterval(()=>createEffect("💖","floating-heart",150,6000),150);
+    setInterval(()=>createEffect("🌹","petal",200,8000),200);
+    setInterval(()=>createConfetti(),70);
+}
+
+function createEffect(symbol,className,interval,removeTime){
+    let el=document.createElement("div");
+    el.className=className;
+    el.innerHTML=symbol;
+    el.style.left=Math.random()*100+"%";
+    el.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),removeTime);
+}
+
+function createConfetti(){
+    let conf=document.createElement("div");
+    conf.className="confetti";
+    conf.style.left=Math.random()*100+"%";
+    conf.style.background="hsl("+Math.random()*360+",100%,50%)";
+    conf.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(conf);
+    setTimeout(()=>conf.remove(),6000);
+}
+
+/* Sparkles */
+for(let i=0;i<50;i++){
+    let s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=Math.random()*100+"%";
+    s.style.animationDuration=(Math.random()*5+5)+"s";
+    document.body.appendChild(s);
+}
+
+/* Teddies */
+for(let i=0;i<35;i++){
+    let teddy=document.createElement("div");
+    teddy.className="teddy";
+    teddy.innerHTML="🧸";
+    teddy.style.left=Math.random()*100+"%";
+    teddy.style.animationDuration=(Math.random()*6+6)+"s";
+    document.body.appendChild(teddy);
+}
+</script>
+
+</body>
+</html>
