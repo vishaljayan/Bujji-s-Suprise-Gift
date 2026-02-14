@@ -4,123 +4,35 @@
 <meta charset="UTF-8">
 <title>For Wifey ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
 <style>
 body{
 margin:0;
 overflow:hidden;
-font-family:'Poppins',sans-serif;
-background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffdde1,#ff758c);
-background-size:400% 400%;
-animation:gradientMove 10s ease infinite;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 color:black;
+text-align:center;
 }
 
-/* Gradient Animation */
-@keyframes gradientMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
-
-/* Sparkles */
-.sparkle{
-position:fixed;
-width:6px;
-height:6px;
-background:white;
-border-radius:50%;
-opacity:.8;
-animation:sparkleMove linear infinite;
-}
-@keyframes sparkleMove{
-0%{transform:translateY(100vh);opacity:0}
-50%{opacity:1}
-100%{transform:translateY(-10vh);opacity:0}
-}
-
-/* Teddies */
-.teddy{
-position:fixed;
-font-size:80px;
-animation:floatTeddy linear infinite;
-pointer-events:none;
-}
-@keyframes floatTeddy{
-0%{transform:translateY(100vh) rotate(0deg)}
-100%{transform:translateY(-20vh) rotate(360deg)}
-}
-
-/* Opening Screen */
-.inbox{
-width:100%;
+/* Screens */
+.screen{
 height:100vh;
 display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
-cursor:pointer;
 }
 
-.love-message{
-width:80%;
-animation:heartbeat 1.5s infinite;
-}
-
-.love-message p{
-font-size:26px;
-margin:12px 0;
-opacity:0;
-animation:fadeIn 2s forwards;
-}
-
-.love-message p:nth-child(1){animation-delay:1s}
-.love-message p:nth-child(2){animation-delay:2s}
-.love-message p:nth-child(3){animation-delay:3s}
-.love-message p:nth-child(4){animation-delay:4s}
-
-.valentine{
-font-family:'Great Vibes',cursive;
-font-size:100px;
-margin-top:40px;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{text-shadow:0 0 20px #fff}
-to{text-shadow:0 0 80px #fff,0 0 120px #ff4d6d}
-}
-
-@keyframes fadeIn{to{opacity:1}}
-
-@keyframes heartbeat{
-0%{transform:scale(1)}
-25%{transform:scale(1.05)}
-40%{transform:scale(1)}
-60%{transform:scale(1.05)}
-100%{transform:scale(1)}
-}
-
-/* Proposal Screen */
-.proposal{
+.hidden{
 display:none;
-height:100vh;
-text-align:center;
-padding-top:120px;
-}
-
-.proposal h1{
-font-family:'Great Vibes',cursive;
-font-size:70px;
 }
 
 /* Buttons */
 button{
-padding:15px 40px;
-border-radius:40px;
+padding:15px 30px;
+font-size:18px;
 border:none;
-font-size:20px;
+border-radius:30px;
 cursor:pointer;
 position:absolute;
 }
@@ -136,209 +48,75 @@ background:#dc3545;
 color:white;
 left:35%;
 }
-
-/* Final Screen */
-.final{
-display:none;
-height:100vh;
-text-align:center;
-padding-top:120px;
-}
-
-.final-title{
-font-family:'Great Vibes',cursive;
-font-size:100px;
-animation:glow 2s infinite alternate;
-}
-
-.final-message{
-font-size:26px;
-width:70%;
-margin:30px auto;
-line-height:1.6;
-animation:fadeIn 2s ease-in-out forwards;
-}
-
-/* Hearts */
-.heart{
-position:absolute;
-font-size:80px;
-animation:floatUp linear infinite;
-}
-@keyframes floatUp{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-20vh)}
-}
-
-/* Petals */
-.petal{
-position:absolute;
-font-size:70px;
-animation:fall linear infinite;
-}
-@keyframes fall{
-0%{transform:translateY(-10vh) rotate(0deg)}
-100%{transform:translateY(100vh) rotate(360deg)}
-}
-
-/* Confetti */
-.confetti{
-position:absolute;
-width:14px;
-height:14px;
-animation:confettiFall linear infinite;
-}
-@keyframes confettiFall{
-0%{transform:translateY(-10vh) rotate(0deg)}
-100%{transform:translateY(100vh) rotate(720deg)}
-}
-
-/* Flash */
-.flash{
-position:fixed;
-width:100%;
-height:100%;
-background:white;
-animation:flashEffect .6s ease-out;
-}
-@keyframes flashEffect{
-0%{opacity:1}
-100%{opacity:0}
-}
 </style>
 </head>
 
 <body>
 
-<!-- MUSIC -->
 <audio id="bgMusic" loop>
 <source src="kalyani.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Opening -->
-<div class="inbox" id="inbox" onclick="openMail()">
-<div class="love-message">
-<p>You didn’t just enter my life.</p>
-<p>You became my peace.</p>
-<p>My chaos.</p>
-<p>My forever.</p>
-<div class="valentine">Wifey ❤️</div>
-</div>
+<div id="inbox" class="screen">
+<h1>Wifey ❤️</h1>
+<p>Click anywhere...</p>
 </div>
 
 <!-- Proposal -->
-<div class="proposal" id="proposal">
+<div id="proposal" class="screen hidden">
 <h1>Will you be my Valentine, Wifey? ❤️</h1>
 <button id="noBtn">No</button>
-<button id="yesBtn" onclick="accepted()">Yes</button>
+<button id="yesBtn">Yes</button>
 </div>
 
 <!-- Final -->
-<div class="final" id="final">
-<div class="final-title">YOU SAID YES 💖</div>
-<div class="final-message">
-You just made my world brighter than ever.
-<br><br>
-I don’t just love you.
-<br>
-I choose you.
-<br>
-Every single day.
-<br>
-In every lifetime.
-<br><br>
-Forever yours, Wifey ❤️
-</div>
+<div id="final" class="screen hidden">
+<h1>YOU SAID YES 💖</h1>
+<p>I love you more than words can explain.</p>
 </div>
 
 <script>
 
-/* OPEN MAIL */
-function openMail(){
-const music=document.getElementById("bgMusic");
-if(music){
-music.play().catch(()=>{});
-}
-document.getElementById("inbox").style.display="none";
-document.getElementById("proposal").style.display="block";
-}
+/* ELEMENTS */
+const inbox = document.getElementById("inbox");
+const proposal = document.getElementById("proposal");
+const finalScreen = document.getElementById("final");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const music = document.getElementById("bgMusic");
 
-/* No Button Logic */
-const noBtn=document.getElementById("noBtn");
-const messages=[
+/* OPEN MAIL */
+inbox.addEventListener("click", function(){
+    music.play().catch(()=>{});
+    inbox.classList.add("hidden");
+    proposal.classList.remove("hidden");
+});
+
+/* NO BUTTON */
+const messages = [
 "No way 😏",
 "Seriously?",
 "Think again.",
-"Wrong choice detected.",
-"System error: Try Yes.",
-"You sure about that?",
-"That button doesn’t work 😌",
-"Nice try.",
-"Access denied.",
-"Only one correct answer ❤️"
+"Wrong choice.",
+"You sure?",
+"Only Yes works ❤️"
 ];
-let msgIndex=0;
 
-if(noBtn){
-noBtn.addEventListener("mouseover",function(){
-noBtn.style.left=Math.random()*70+"%";
-noBtn.style.top=Math.random()*300+"px";
-alert(messages[msgIndex]);
-msgIndex=(msgIndex+1)%messages.length;
+let index = 0;
+
+noBtn.addEventListener("mouseover", function(){
+    noBtn.style.left = Math.random()*70 + "%";
+    noBtn.style.top = Math.random()*300 + "px";
+    alert(messages[index]);
+    index = (index + 1) % messages.length;
 });
-}
 
-/* YES Celebration */
-function accepted(){
-
-document.body.appendChild(document.createElement("div")).className="flash";
-
-document.getElementById("proposal").style.display="none";
-document.getElementById("final").style.display="block";
-
-setInterval(()=>createEffect("💖","heart",6000),150);
-setInterval(()=>createEffect("🌹","petal",8000),200);
-setInterval(()=>createConfetti(),70);
-}
-
-function createEffect(symbol,className,removeTime){
-let el=document.createElement("div");
-el.className=className;
-el.innerHTML=symbol;
-el.style.left=Math.random()*100+"%";
-el.style.animationDuration=(Math.random()*3+3)+"s";
-document.body.appendChild(el);
-setTimeout(()=>el.remove(),removeTime);
-}
-
-function createConfetti(){
-let c=document.createElement("div");
-c.className="confetti";
-c.style.left=Math.random()*100+"%";
-c.style.background="hsl("+Math.random()*360+",100%,50%)";
-c.style.animationDuration=(Math.random()*3+3)+"s";
-document.body.appendChild(c);
-setTimeout(()=>c.remove(),6000);
-}
-
-/* Sparkles */
-for(let i=0;i<60;i++){
-let s=document.createElement("div");
-s.className="sparkle";
-s.style.left=Math.random()*100+"%";
-s.style.animationDuration=(Math.random()*5+5)+"s";
-document.body.appendChild(s);
-}
-
-/* Teddies */
-for(let i=0;i<35;i++){
-let t=document.createElement("div");
-t.className="teddy";
-t.innerHTML="🧸";
-t.style.left=Math.random()*100+"%";
-t.style.animationDuration=(Math.random()*6+6)+"s";
-document.body.appendChild(t);
-}
+/* YES BUTTON */
+yesBtn.addEventListener("click", function(){
+    proposal.classList.add("hidden");
+    finalScreen.classList.remove("hidden");
+});
 
 </script>
 
