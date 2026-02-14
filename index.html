@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+.<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For You ❤️</title>
+<title>For Wifey ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
@@ -14,10 +14,10 @@ font-family:'Poppins',sans-serif;
 background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffdde1,#ff758c);
 background-size:400% 400%;
 animation:gradientMove 10s ease infinite;
-color:white;
+color:black;
 }
 
-/* Moving gradient */
+/* Gradient */
 @keyframes gradientMove{
 0%{background-position:0% 50%}
 50%{background-position:100% 50%}
@@ -40,7 +40,7 @@ animation:sparkleMove linear infinite;
 100%{transform:translateY(-10vh);opacity:0}
 }
 
-/* Teddy Bears */
+/* Teddies */
 .teddy{
 position:fixed;
 font-size:80px;
@@ -82,7 +82,7 @@ animation:fadeIn 2s forwards;
 
 .valentine{
 font-family:'Great Vibes',cursive;
-font-size:90px;
+font-size:100px;
 margin-top:40px;
 animation:glow 2s infinite alternate;
 }
@@ -92,9 +92,7 @@ from{text-shadow:0 0 20px #fff}
 to{text-shadow:0 0 80px #fff,0 0 120px #ff4d6d}
 }
 
-@keyframes fadeIn{
-to{opacity:1}
-}
+@keyframes fadeIn{to{opacity:1}}
 
 @keyframes heartbeat{
 0%{transform:scale(1)}
@@ -117,6 +115,7 @@ font-family:'Great Vibes',cursive;
 font-size:80px;
 }
 
+/* Buttons */
 button{
 padding:15px 40px;
 border-radius:40px;
@@ -203,8 +202,9 @@ animation:flashEffect .6s ease-out;
 
 <body>
 
-<audio id="bgMusic" loop>
-<source src="kalyani.mp3" type="audio/mp3">
+<!-- MUSIC -->
+<audio autoplay loop>
+<source src="kalyani.mpeg" type="audio/mpeg">
 </audio>
 
 <div class="inbox" id="inbox" onclick="openMail()">
@@ -213,12 +213,12 @@ animation:flashEffect .6s ease-out;
 <p>You became my peace.</p>
 <p>My chaos.</p>
 <p>My forever.</p>
-<div class="valentine">Will you be my Valentine ❤️?</div>
+<div class="valentine">Wifey ❤️</div>
 </div>
 </div>
 
 <div class="proposal" id="proposal">
-<h1>Dear Bujji Thalli 💖</h1>
+<h1>Will you be my Valentine, Wifey? ❤️</h1>
 <button id="noBtn">No</button>
 <button id="yesBtn" onclick="accepted()">Yes</button>
 </div>
@@ -229,18 +229,34 @@ animation:flashEffect .6s ease-out;
 
 <script>
 function openMail(){
-document.getElementById("bgMusic").play();
 document.getElementById("inbox").style.display="none";
 document.getElementById("proposal").style.display="block";
 }
 
-/* No button escape */
-document.getElementById("noBtn").addEventListener("mouseover",()=>{
-document.getElementById("noBtn").style.left=Math.random()*70+"%";
-document.getElementById("noBtn").style.top=Math.random()*300+"px";
+/* No button fun */
+const noBtn=document.getElementById("noBtn");
+const messages=[
+"No way 😏",
+"Seriously?",
+"Think again.",
+"Wrong choice detected.",
+"System error: Try Yes.",
+"You sure about that?",
+"That button doesn’t work 😌",
+"Nice try.",
+"Access denied.",
+"Only one correct answer ❤️"
+];
+let msgIndex=0;
+
+noBtn.addEventListener("mouseover",()=>{
+noBtn.style.left=Math.random()*70+"%";
+noBtn.style.top=Math.random()*300+"px";
+alert(messages[msgIndex]);
+msgIndex=(msgIndex+1)%messages.length;
 });
 
-/* YES CLICK */
+/* YES celebration */
 function accepted(){
 document.body.appendChild(document.createElement("div")).className="flash";
 document.getElementById("proposal").style.display="none";
